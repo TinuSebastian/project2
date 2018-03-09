@@ -1,0 +1,225 @@
+<<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+    youtube:  https://www.youtube.com/channel/UCqlv40k1N0L9nsSrzL1OWwg/videos
+    site:     http://www.templateindirr.com
+<link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet"> 
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
+<title>Insert title here</title>
+</head>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,900,700,600,500,300,200,100,800);
+h2 {
+    color: #4C4C4C;
+    word-spacing: 5px;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom:30px;
+    font-family: 'Raleway', sans-serif;
+}
+.ion-minus{
+    padding:0px 10px;
+}
+.blog {
+	background-color:#f6f6f6;
+	padding:60px 0px;
+    font-family: 'Raleway', sans-serif;
+}
+.blog .blog-column a{
+    color: #5db4c0;
+    text-decoration: none;
+}
+.blog  span {
+    font-size: 17px;
+    font-weight: 700;
+}
+.blog  .blog-detail {
+    margin-top: 10px;
+}
+.fa.fa-user, .fa.fa-clock-o {
+    padding-right: 10px;
+    color: #909090;
+    font-size: 11px;
+}
+</style>
+<body>
+<div class="blog" data-ng-controller="blogcontroller">
+    <div class="container">
+           
+            <div class="row">
+                 <div class="col-lg-6 col-lg-offset-3 text-center">  
+                    <h2><span class="ion-minus"></span>Blog Posts<span class="ion-minus"></span></h2>
+                    <br>
+                 </div> 
+            </div>  
+                
+          
+		   
+		   <div style="margin:40px 0px;"></div>
+		   
+		   <div class="row" data-ng-repeat="blogview in blogs">
+			
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" data-aos="fade-right">
+				
+                    <div class="col-lg-6 col-xs-12">
+                        <img src="https://images.pexels.com/photos/129441/pexels-photo-129441.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" width="100%">
+					</div>
+					
+					<div class="col-lg-6 col-xs-12">
+						 <div class="blog-column">
+							<span>{{blogview.blogname}}</span>
+							 <ul class="blog-detail list-inline"> 
+								<li><i class="fa fa-user"></i>{{blogview.username}}</li> 
+								<li><i class="fa fa-clock-o"></i>July 14, 2017</li> 
+							</ul> 
+							<br>
+							<br>
+							
+							<a href="" data-ng-click="maximum(blogview.blogid)">Read More</a>
+						</div>
+					</div>
+					
+                </div>
+				
+			
+			
+			</div>
+			
+            
+    </div>
+</div>
+</body>
+</html> -->
+
+
+<style>
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size:14px;
+}
+.btn {
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: 400;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;
+}
+.sidebar {
+  list-style-type:none;
+  //background-color:#333;
+  top:0;
+  float:left;
+  bottom:0;
+  left:0;
+  text-align:left;
+  //position: absolute;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition:1s ease;
+}
+.sidebar a {
+  text-decoration:none;
+  color:black;
+  transition:1s ease;
+}
+.sidebar li {
+  text-indent: 2px;
+  line-height: 40px;
+  transition:0.5s ease;
+}
+.sidebar li:hover {
+  color:white;
+  background-color:green;
+  cursor:pointer;
+  text-indent: 3px;
+  
+}
+.sidebar li:hover a{
+  color:white; 
+}
+.sidebar li span{
+  color:green; 
+}
+.sidebar li .glyphicon-off{
+  color:black; 
+}
+.sidebar li:hover span{
+  color:white; 
+}
+.wrapper { 
+  position: relative; 
+  width: 100%; 
+  min-height: 50px; 
+  margin: 0 auto; 
+}
+.box { 
+  background: blue; 
+}
+p {
+  //padding-left: 50px; 
+}
+@media only screen and (max-width: 989px) {
+  .sidebar{
+    width:100%;
+    margin:0 auto;
+    text-align:center;
+  }
+}
+</style>
+
+
+
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+   </head>
+   <body>
+   <h2><strong><center><b>BLOGS</b></center></strong></h2>
+      <div class="container-fluid">
+         <div class="row" data-ng-controller="blogcontroller">
+            
+            <div class="col-md-10" data-ng-repeat="bl in blogs">
+			<div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-12 col-xs-12">
+                     <h2><font color="blue">{{bl.blogname}}</font></h2>
+                  
+                     <div class="wrapper">
+                        <div class="row-content">
+                                    <div class="list-group-item-heading">
+                                        <a href="#" title="sintret">
+                                            <small><font color="black" size="3"><i class="fa fa-user" aria-hidden="true"></i> {{bl.username}}</font></small>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                        <button type="button" class="btn btn-success" data-ng-click="maximum(bl.blogid)" style="float:right;margin-right:20px">Read more</button>
+                     </div>
+					  <hr>
+                  </div>
+				 
+               </div>
+            </div>
+			</div>
+         </div>
+		 </div>
+
+
+   </body>
+</html>

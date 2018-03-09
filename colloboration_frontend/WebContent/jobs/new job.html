@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+<br>
+<br>
+<br>
+
+<h4>CREATE A JOB</h4>
+    <div class="row">
+     
+        <div class="col m12">
+        <div class="card card-1" style="margin-top:5vh;padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px">
+            
+            <div class="row">
+            <div data-ng-controller="jobcontroller">
+                <form class="col s12" data-ng-submit="insertJobs()" >
+                   
+                   
+                   
+                   <div class="form-group">
+      <label for="jobprofile">Job Profile</label>
+      <input class="form-control input-lg" id="inputlg" type="text" data-ng-model="Job.jobprofile"  required >
+    </div> 
+                   <div class="form-group">
+                    <label for="jobdescription">Job Description</label>
+      <textarea class="form-control" rows="5" id="comment" data-ng-model="Job.jobdesc" required></textarea>
+    </div>
+    
+    <div class="form-group">
+    <label for="jobqualification">Job Qualifications</label>
+      <textarea class="form-control" rows="5" id="comment" data-ng-model="Job.qualification"required></textarea>
+    </div>
+                          
+                          
+                          <div class="form-group">
+    <label for="jobsalary">Job Salary</label>
+        <input  type="number" id="jobsalary"  data-ng-model="Job.salary" required >
+    </div> 
+            
+            <div class="form-group">
+    <label for="company">Company</label>
+        <input  type="text" id="company"  data-ng-model="Job.company" required >
+    </div> 
+                 
+                 
+                  <div class="form-group">
+    <label for="companydesc">Company Description</label>
+      <textarea class="form-control" rows="5" id="comment"data-ng-model="Job.companydesc" required></textarea>
+    </div>               
+                   
+                      
+                       <div class="input-field col s6">
+                            <p class="right-align">
+                                <button class="btn btn-large waves-effect waves-light" type="submit" >SUBMIT</button>
+                            </p>
+                        </div>
+                   
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div></div>
+    	
+    	
+    	
+    	
+	</div>
+</body>
+</html>
