@@ -1,208 +1,226 @@
 package com.niit.colloboration_backendDAOImpl;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import javax.management.Query;
-import javax.transaction.Transactional;
-
-import org.h2.engine.Session;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.SharedSessionContract;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.colloboration_backendDAO.FriendDao;
+import com.niit.colloboration_backendDAO.FriendDAO;
 import com.niit.colloboration_backendModel.Friend;
-import com.niit.colloboration_backendModel.Users;
+import com.niit.colloboration_backendModel.User;
 
-public class FriendDaoImpl implements FriendDao{
-
-	@Autowired
-	SessionFactory sessionFactory;
-	
-	
-	@Autowired
-	public void FriendDAOImpl(SessionFactory sessionFactory)
-	{
-		this.sessionFactory=sessionFactory;
-	}
-	
-	
-	//sending friend requests
-@Transactional
-	public boolean addFriend(Friend friend) {
-		try
+@Repository("friendDAO")
+	public class FriendDAOImpl implements FriendDAO {
+		
+		
+		@Autowired
+		SessionFactory sessionFactory;
+		
+		
+		@Autowired
+		public FriendDAOImpl(SessionFactory sessionFactory)
 		{
-		sessionFactory.getCurrentSession().save(friend);
-		return true;
-		}
-		catch(Exception e)
-		{
-		System.out.println(e);
-		return false;
-		}
-	}
-
-//accept friend requests
-@Transactional
-	public boolean accept(int friendreqid) {
-		try
-		{Session session=(Session) sessionFactory.openSession();
-		Friend friend=(Friend) ((org.hibernate.Session) session).get(Friend.class,friendreqid);
-		friend.setStatus("Y");
-		((org.hibernate.Session) session).saveOrUpdate(friend);
-		session.close();
-		return true;
-		}
-		catch(Exception e)
-		{
-		System.out.println(e);
-		return false;
+			this.sessionFactory=sessionFactory;
 		}
 		
-	}
-
-
-//rejecting friendrequests
-@Transactional
-	public boolean reject(int friendreqid) {
-		try
-		{Session session=(Session) sessionFactory.openSession();
-		Friend friend=(Friend) ((org.hibernate.Session) session).get(Friend.class,friendreqid);
-		friend.setStatus("N");
-		((org.hibernate.Session) session).saveOrUpdate(friend);
-		session.close();
-		return true;
+		
+		//sending friend requests
+	@Transactional
+		public boolean addFriend(Friend friend) {
+			try
+			{
+			sessionFactory.getCurrentSession().save(friend);
+			return true;
+			}
+			catch(Exception e)
+			{
+			System.out.println(e);
+			return false;
+			}
 		}
-		catch(Exception e)
-		{
-		System.out.println(e);
-		return false;
-		}	}
+
+	//accept friend requests
+	@Transactional
+		public boolean accept(int friendreqid) {
+			try
+			{Session session=sessionFactory.openSession();
+			Friend friend=(Friend) session.get(Friend.class,friendreqid);
+			friend.setStatus("YES");
+			session.saveOrUpdate(friend);
+			session.close();
+			return true;
+			}
+			catch(Exception e)
+			{
+			System.out.println(e);
+			return false;
+			}
+			
+		}
 
 
-//fetching all my friend requests
-@Transactional
-	public ArrayList<Friend> getAllFriendRequestsByUser( int userid) {
+	//rejecting friendrequests
+	@Transactional
+		public boolean reject(int friendreqid) {
+			try
+			{Session session=sessionFactory.openSession();
+			Friend friend=(Friend) session.get(Friend.class,friendreqid);
+			friend.setStatus("NO");
+			session.saveOrUpdate(friend);
+			session.close();
+			return true;
+			}
+			catch(Exception e)
+			{
+			System.out.println(e);
+			return false;
+			}	}
+
+
+	//fetching all my friend requests
+	@Transactional
+		public ArrayList<Friend> getAllFriendRequestsByUser( int user_id) {
+			
+
+			Session session = sessionFactory.openSession();
+			ArrayList<Friend> myfriends=(ArrayList<Friend>)session.createQuery("from Friend where friendid="+user_id+" and status='P'").list();
+			session.close();
+			return myfriends;
+		}
+
+	//retyrieving everything from friend table 
+	@Transactional
+		public ArrayList<Friend> getAllFriend() {
+			Session session = sessionFactory.openSession();
+			ArrayList<Friend> Allfriends=(ArrayList<Friend>)session.createQuery("from Friend").list();
+			session.close();
+			return Allfriends;
+			
+		}
+
+	//fetching all my friends 
+	@Transactional
+	public ArrayList<Friend> getAllMyFriend(int myid) {
+		Session session = sessionFactory.openSession();
+		Query q= session.createQuery("from Friend where status='YES' and (user_id="+myid+" or friendid="+myid+")" );
+	ArrayList<Friend> myfriends=(ArrayList<Friend>)q.list();
+	return myfriends;
+		}
+
+	//fetching all pending entries like we not acceped or he not accepted
+	@Transactional
+	public ArrayList<Friend> getAllpendingentries(int myid) {
+		Session session = sessionFactory.openSession();
+		Query q= session.createQuery("from Friend where  status='P' and( user_id="+myid+" or friendid="+myid+") ");
+	ArrayList<Friend> myfriends=(ArrayList<Friend>)q.list();
+	return myfriends;
+		}
+
+
+	//
+	@Transactional
+	public ArrayList<Friend> getAllPendingrequests( int user_id) {
 		
 
-		Session session = (Session) sessionFactory.openSession();
-		ArrayList<Friend> myfriends=(ArrayList<Friend>)((SharedSessionContract) session).createQuery("from Friend where FRI_ID="+userid+" and status='A'").list();
+		Session session = sessionFactory.openSession();
+		ArrayList<Friend> myfriends=(ArrayList<Friend>)session.createQuery("from Friend where user_id="+user_id+" and status='P'").list();
 		session.close();
 		return myfriends;
 	}
 
-//retyrieving everything from friend table 
-@Transactional
-	public ArrayList<Friend> getAllFriend() {
-		Session session = (Session) sessionFactory.openSession();
-		ArrayList<Friend> Allfriends=(ArrayList<Friend>)((SharedSessionContract) session).createQuery("from Friend").list();
-		session.close();
-		return Allfriends;
+
+
+	@Transactional
+	public User getUserById(int user_id) {
+		User user=new User();
+		try{
+			Session session= sessionFactory.openSession();
+			Query query=session.createQuery("from User where user_id="+user_id);
+			 user=(User)query.list().get(0);
+			session.close();
+			
+		}
+		catch(Exception e)
+		{
+			
+			
+		}
+		return user;
+	}
+
+	@Transactional
+	public boolean delete(Friend friend) {
+		try
+		{
+			
+		sessionFactory.getCurrentSession().delete(friend);
+		return true;
+		}
+		catch(Exception e)
+		{
+		System.out.println(e);
+		return false;
+		}
+	}
+
+	@Transactional
+	public List<Friend> getfriendrequest(int friendreqid,int myid) {
+		
+		Session session = sessionFactory.openSession();
+		Query q= session.createQuery("from Friend where (user_id="+myid+" and friendid="+friendreqid+") or (user_id="+friendreqid+" and friendid="+myid+")" );
+		List<Friend> mynfriend=(List<Friend>)q.list();
+	return mynfriend;
 		
 	}
 
-//fetching all my friends 
-@Transactional
-public ArrayList<Friend> getAllMyFriend(int myid) {
-	Session session = (Session) sessionFactory.openSession();
-	Query q= (Query) ((SharedSessionContract) session).createQuery("from Friend where status='YES' and (U_ID="+myid+" or FRI_ID="+myid+")" );
-ArrayList<Friend> myfriends=(ArrayList<Friend>)((org.hibernate.Query) q).list();
-return myfriends;
-	}
 
-@Transactional
-public ArrayList<Friend> getAllMyFriendpend(int myid) {
-	Session session = (Session) sessionFactory.openSession();
-	Query q= (Query) ((SharedSessionContract) session).createQuery("from Friend where (U_ID="+myid+" or FRI_ID="+myid+")");
-ArrayList<Friend> myfriends=(ArrayList<Friend>)((org.hibernate.Query) q).list();
-return myfriends;
-	}
-
-
-//fetching all pending entries like we not acceped or he not accepted
-@Transactional
-public ArrayList<Friend> getAllpendingentries(int myid) {
-	Session session = (Session) sessionFactory.openSession();
-	Query q= (Query) ((SharedSessionContract) session).createQuery("from Friend where  status='A' and( U_ID="+myid+" or FRI_ID="+myid+") ");
-ArrayList<Friend> myfriends=(ArrayList<Friend>)((org.hibernate.Query) q).list();
-return myfriends;
+	@Transactional
+	public Friend acceptfriendrequest(Friend friend)
+	{
+		try
+		{
+		sessionFactory.getCurrentSession().update(friend);
+		return null;
+		}
+		catch(Exception e)
+		{
+		System.out.println(e);
+		return null;
+		}
 	}
 
 
-//
-@Transactional
-public ArrayList<Friend> getAllPendingrequests( int userid) {
-	
-
-	Session session = (Session) sessionFactory.openSession();
-	ArrayList<Friend> myfriends=(ArrayList<Friend>)((SharedSessionContract) session).createQuery("from Friend where U_ID="+userid+" and status='A'").list();
-	session.close();
+	@Transactional
+	public ArrayList<Friend> getAllMyFriendpend(int myid) {
+		Session session = sessionFactory.openSession();
+		Query q= session.createQuery("from Friend where (user_id="+myid+" or friendid="+myid+")");
+	ArrayList<Friend> myfriends=(ArrayList<Friend>)q.list();
 	return myfriends;
-}
 
-
-
-@Transactional
-public Users getUserById(int userid) {
-	Users user=new Users();
-	try{
-		Session session= (Session) sessionFactory.openSession();
-		Query query=(Query) ((SharedSessionContract) session).createQuery("from Users where userid="+userid);
-		 user=(Users)((org.hibernate.Query) query).list().get(0);
-		session.close();
-		
 	}
-	catch(Exception e)
-	{
-		
-		
-	}
-	return user;
-}
 
-@Transactional
-public boolean delete(Friend friend) {
-	try
-	{
-		
-	sessionFactory.getCurrentSession().delete(friend);
-	return true;
+	@Transactional
+	public Friend rejectfriendrequest(Friend friend) {
+		try
+		{
+		sessionFactory.getCurrentSession().update(friend);
+		return null;
+		}
+		catch(Exception e)
+		{
+		System.out.println(e);
+		return null;
+		}
 	}
-	catch(Exception e)
-	{
-	System.out.println(e);
-	return false;
-	}
-}
 
-@Transactional
-public Friend getfriendrequest(int friendreqid,int myid) {
+
+
+
+	}
 	
-	Session session = (Session) sessionFactory.openSession();
-	Query q= (Query) ((SharedSessionContract) session).createQuery("from Friend where (U_ID="+myid+" and FRI_ID="+friendreqid+") or (U_ID="+friendreqid+" and FRI_ID="+myid+")" );
-Friend mynfriend=(Friend)((org.hibernate.Query) q).list().get(0);
-return mynfriend;
-	
-}
-
-
-@Transactional
-public Friend acceptfriendrequest(Friend friend)
-{
-	try
-	{
-	sessionFactory.getCurrentSession().update(friend);
-	return null;
-	}
-	catch(Exception e)
-	{
-	System.out.println(e);
-	return null;
-	}
-}
-
-
-
-
-}
 

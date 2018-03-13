@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+    
+     <h1><center><b>CREATE YOUR BLOG</b></center></h1>
+       
+       
+            
+            <div class="row">
+            <div data-ng-controller="blogcontroller">
+                <form class="col s12" data-ng-submit="addBlog()" >
+                   
+         <div class="form-group">
+      <label for="inputlg">Blog Name:</label>
+      <input class="form-control input-lg" id="inputlg" type="text" data-ng-model="Blog.blogname" required >
+    </div>                 
+    <div class="form-group">
+    
+      <label for="comment">Blog Content:</label>
+      <textarea class="form-control" rows="5" id="comment" data-ng-model="Blog.blogcontent" required></textarea>
+    </div>
+    
+    
+    <div class="input-field col s6">
+                            <p class="right-align">
+                               <center> <button class="btn btn-primary" type="submit" >SUBMIT</button></center>
+                            </p>
+                        </div>
+  </form>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -3,89 +3,97 @@ package com.niit.colloboration_backendModel;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class ForumRequests implements Serializable {
+import org.springframework.stereotype.Component;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+@Entity
+	 @Component
+	 @Table(name="ForumRequests")
+	 public class ForumRequests implements Serializable {
 
-	@Id
-	@GeneratedValue
-	@Column(name="ForReqID",nullable = false)
-	int forreqid;
-	
-	
-	@Column(name="UserId",nullable = false)
-	int userid;
-	
-	@Column(name="Forumid",nullable = false)
-	int forumid;
-	
-	@Column(name="Forumname",nullable = false)
-	String forumname;
-	@Column(name="Username",nullable = false)
-	String username;
-	
+	 	/**
+	 	 * 
+	 	 */
+	 	private static final long serialVersionUID = 1L;
 
-public String getForumname() {
-		return forumname;
-	}
+	 	@Id
+	 	@GeneratedValue
+	 	@Column(name="ForReqID",nullable = false)
+	 	int forreqid;
+	 	
+	 	
+	 	@Column(name="UserId",nullable = false)
+	 	int user_id;
+	 	
+	 	@Column(name="Forumid",nullable = false)
+	 	int forumid;
+	 	
+	 	@Column(name="Forumname",nullable = false)
+	 	String forumname;
+	 	@Column(name="Username",nullable = false)
+	 	String username;
+	 	
 
-	public void setForumname(String forumname) {
-		this.forumname = forumname;
-	}
+	 public String getForumname() {
+	 		return forumname;
+	 	}
 
-	public String getUsername() {
-		return username;
-	}
+	 	public void setForumname(String forumname) {
+	 		this.forumname = forumname;
+	 	}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+	 	public String getUsername() {
+	 		return username;
+	 	}
 
-public int getForumid() {
-		return forumid;
-	}
+	 	public void setUsername(String username) {
+	 		this.username = username;
+	 	}
 
-	public void setForumid(int forumid) {
-		this.forumid = forumid;
-	}
+	 public int getForumid() {
+	 		return forumid;
+	 	}
 
-@Column(name="status")
-private String status;
+	 	public void setForumid(int forumid) {
+	 		this.forumid = forumid;
+	 	}
 
-	public String getStatus() {
-	return status;
-}
+	 @Column(name="status")
+	 private String status;
 
-public void setStatus(String status) {
-	this.status = status;
-}
+	 	public String getStatus() {
+	 	return status;
+	 }
 
-	public int getForreqid() {
-		return forreqid;
-	}
+	 public void setStatus(String status) {
+	 	this.status = status;
+	 }
 
-	public void setForreqid(int forreqid) {
-		this.forreqid = forreqid;
-	}
+	 	public int getForreqid() {
+	 		return forreqid;
+	 	}
 
-
-	public int getUserid() {
-		return userid;
-	}
-
-	public void setUserid(int userid) {
-		this.userid = userid;
-	}
+	 	public void setForreqid(int forreqid) {
+	 		this.forreqid = forreqid;
+	 	}
 
 
+	 	public int getUserid() {
+	 		return user_id;
+	 	}
+
+	 	public void setUserid(int userid) {
+	 		this.user_id = userid;
+	 	}
 
 
 
-	
-}
+
+
+	 	
+	 }
+

@@ -1,6 +1,6 @@
-package com.niit.colloboration_backend;
+/*package com.niit.colloboration_backend;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
@@ -10,114 +10,107 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.niit.colloboration_backendDAO.UsersDao;
-import com.niit.colloboration_backendModel.Users;
+import com.niit.colloboration_backendDAO.UserDAO;
+import com.niit.colloboration_backendModel.User;
 
-public class UserDaoTest {
-
+public class UserDAOTest {
 	@Autowired
-public static UsersDao userDAO;
-	
-	
-	@BeforeClass
-	public static void initialize()
-	{
-		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
-		context.scan("com.niit");
-		context.refresh();
+	public static UserDAO userDAO;
 		
-		userDAO=(UsersDao)context.getBean("userDAO");
-	}
-	
-//@Ignore
-	@Test
-	public void getAllUsersTest()
-	{
-		ArrayList<Users> users= userDAO.getAllUser();
-		for(Users u:users)
+		
+		@BeforeClass
+		public static void initialize()
 		{
-			System.out.println(u.getFirstname());
-			System.out.println(u.getLastname());
-			System.out.println(u.getPassword());
+			AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
+			context.scan("com.niit");
+			context.refresh();
+			
+			userDAO=(UserDAO)context.getBean("userDAO");
+		}
 		
-		
-	  }
-	}
-//@Ignore
+	@Ignore
 		@Test
-		public void addUserTest()
+		public void getAllUsersTest()
 		{
-			Users users =new Users();
-			users.setFirstname("plavin ");
-			users.setLastname("paul");
-			users.setEmail("palvin@gmail.com");
-			users.setIsonline("N");
-			users.setPassword("palvin1212");
-			users.setRole("ROLE_USER");
-			
-			users.setUserid(1236);
-			users.setStatus("P");
-			
-			
-		
-			assertTrue("Problem in Inserting USer",userDAO.saveUser(users));
-			
-			
+			ArrayList<User> user= userDAO.getAllUser();
+			for(User u:user)
+			{
+				System.out.println(u.getFirst_name());
+				System.out.println(u.getLast_name());
+				System.out.println(u.getPassword());
 			
 			
 		}
-		
-		@Ignore
-		@Test
-		public void getUserTest()
-		{
-			
-			Users users=(Users)userDAO.getUser(1);
-			System.out.println(users.getEmail());
-			
 		}
-		
-	
-		@Test
-		public void getUserByEmailTest()
-		{
+        @Ignore
+			@Test
+			public void addUserTest()
+			{
+				User user =new User();
+				user.setFirst_name("amal ");
+				user.setLast_name("saleem");
+				user.setUsername("Amaal");
+				user.setEmail_id("amal@gmail.com");
+				user.setIsonline("N");
+				user.setGender("F");
+				user.setPassword("amal1811");
+				user.setRole("ROLE_USER");
+				user.setUser_id(1236);
+				user.setContact("12345687");
+				
+				
 			
-			Users users=(Users)userDAO.getUserbyemail("j@gmail.com");
-			System.out.println(users.getFirstname());
+				assertTrue("Problem in Inserting USer",userDAO.saveUser(user));
+				
+				
+				
+				
+			}
 			
-		}
-		
-		
-		@Ignore
-		@Test
-		public void updateOnlineStatusTest()
+			@Ignore
+			@Test
+			public void getUserTest()
+			{
+				
+				User user=(User)userDAO.getUser(1);
+				System.out.println(user.getEmail_id());
+				
+			}
+			
+			@Ignore
+			@Test
+			public void updateOnlineStatusTest()
 
-		{
-			Users users=userDAO.getUser(2);
-			
-			assertTrue("Problem in updating Online Status",userDAO.updateOnlineStatus(users));
-			
-			
-		}
-		@Ignore
-		@Test
-		public void checklogin()
-		{
-			Users user=(Users)userDAO.getUser(6);
-			System.out.println(user.getEmail());
-			
-			assertTrue("Problem in login Status",userDAO.checkLogin(user));
-			
-		}
-		@Ignore
-		@Test
-		public void getuserbyemail()
-		{
-			Users user=(Users)userDAO.getUserbyId(1);
-			System.out.println(user.getEmail());
-			
-			
-			
-		}
+			{
+				User user=userDAO.getUser(2);
+				
+				assertTrue("Problem in updating Online Status",userDAO.updateOnlineStatus(user));
+				
+				
+			}
+			@Ignore
+			@Test
+			public void checklogin()
+			{
+				User user=(User)userDAO.getUser(33);
+				System.out.println(user.getEmail_id());
+				
+				assertTrue("Problem in login Status",userDAO.checkLogin(user));
+				
+			}
+			@Ignore
+			@Test
+			public void getuserbyemail()
+			{
+				User user=(User)userDAO.getUserbyId(1);
+				System.out.println(user.getEmail_id());
+				
+				
+				
+			}
+
 
 }
+
+
+*/

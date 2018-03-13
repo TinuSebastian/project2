@@ -2,157 +2,157 @@ package com.niit.colloboration_backendDAOImpl;
 
 import java.util.ArrayList;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.colloboration_backendDAO.JobDao;
-import com.niit.colloboration_backendModel.Jobapplications;
+import com.niit.colloboration_backendDAO.JobDAO;
 import com.niit.colloboration_backendModel.Job;
+import com.niit.colloboration_backendModel.JobApplications;
 
-public class JobDaoImpl implements JobDao 
-{
-	@Autowired
-	SessionFactory sessionFactory;
-	@Autowired
-	public JobDaoImpl(SessionFactory sessionFactory)
+@Repository("jobDao")
+	public class JobDAOImpl implements JobDAO
 	{
-		this.sessionFactory=sessionFactory;
-	}
-	
-	@Transactional
-	public boolean addjob(Job job) {
-		
-		try
+		@Autowired
+		SessionFactory sessionFactory;
+		@Autowired
+		public JobDAOImpl(SessionFactory sessionFactory)
 		{
-		sessionFactory.getCurrentSession().save(job);
-		return true;
-		}
-		catch(Exception e)
-		{
-		System.out.println(e);
-		return false;
+			this.sessionFactory=sessionFactory;
 		}
 		
-	}
-	@Transactional
-	public boolean updatejob(Job job) {
+		
+		
+		public JobDAOImpl() {
+			super();
+		}
 
-		try
-		{
-		sessionFactory.getCurrentSession().saveOrUpdate(job);
-		return true;
-		}
-		catch(Exception e)
-		{
-		System.out.println(e);
-		return false;
-		}
-	}
-	@Transactional
-	public boolean deletejob(Job job) {
 		
 
-		try
-		{
-		sessionFactory.getCurrentSession().delete(job);
-		return true;
+			@Transactional
+		public boolean applyJob(JobApplications jobapplications){
+			try
+			{
+			sessionFactory.getCurrentSession().save(jobapplications);
+			return true;
+			}
+			catch(Exception e)
+			{
+			System.out.println(e);
+			return false;
+			}
+			
+			
 		}
-		catch(Exception e)
-		{
-		System.out.println(e);
-		return false;
-		}
-		
-	}
-	
-	@Transactional
-	public boolean deletejobApp(Jobapplications jobapplication) {
-		
 
-		try
-		{
-		sessionFactory.getCurrentSession().delete(jobapplication);
-		return true;
+
+
+		@Transactional
+		public boolean addjob(Job job) {
+			try
+			{
+			sessionFactory.getCurrentSession().save(job);
+			return true;
+			}
+			catch(Exception e)
+			{
+			System.out.println(e);
+			return false;
+			}
 		}
-		catch(Exception e)
-		{
-		System.out.println(e);
-		return false;
+
+
+
+		@Transactional
+		public boolean updatejob(Job job) {
+			try
+			{
+			sessionFactory.getCurrentSession().update(job);
+			return true;
+			}
+			catch(Exception e)
+			{
+			System.out.println(e);
+			return false;
+			}
 		}
-		
-	}
-	
-	
-	@Transactional
-	public Job getjob(int jobId) {
-		
-		Session session=sessionFactory.openSession();
-		Job job = (Job) session.get(Job.class, jobId);
+
+
+
+		@Transactional
+		public boolean deletejob(Job job) {
+			try
+			{
+			sessionFactory.getCurrentSession().delete(job);
+			return true;
+			}
+			catch(Exception e)
+			{
+			System.out.println(e);
+			return false;
+			}
+			
+		}
+
+
+
+		@Transactional
+		public Job getjob(int jobId) {
+			Session session=sessionFactory.openSession();
+			Job job = (Job) session.get(Job.class, jobId);
+			session.close();
+			return job;
+			
+		}
+
+
+
+		@Transactional
+		public ArrayList<Job> getAlljobs() {
+			Session session = sessionFactory.openSession();
+			@SuppressWarnings("unchecked")
+			ArrayList<Job> jobList=(ArrayList<Job>)session.createQuery("from Job").list();
+			session.close();
+			return jobList;
+
+		}
+
+
+
+		@Transactional
+		public ArrayList<JobApplications> myjobs(int myid) {
+			Session session = sessionFactory.openSession();
+			@SuppressWarnings("unchecked")
+			ArrayList<JobApplications> jobapllicationlist=(ArrayList<JobApplications>)session.createQuery("from JobApplications where user_id="+myid).list();
+			session.close();
+			return jobapllicationlist;
+		}
+
+
+
+		@Transactional
+		public ArrayList<JobApplications> checkIfApplied(int jobid, int myid) {
+			Session session = sessionFactory.openSession();
+			@SuppressWarnings("unchecked")
+			ArrayList<JobApplications> checkifapplied=(ArrayList<JobApplications>)session.createQuery("from JobApplications where user_id="+myid+" and jobid="+jobid).list();
 		session.close();
-		return job;
-		
-	}
-
-	@Transactional
-	public ArrayList<Job> getAlljobs() {
-		
-		Session session = sessionFactory.openSession();
-		ArrayList<Job> jobList=(ArrayList<Job>)session.createQuery("from Job").list();
-		session.close();
-		return jobList;
-		
-	}
-
-
-	@Transactional
-	public boolean applyJob(Jobapplications jobapplications){
-		try
-		{
-		sessionFactory.getCurrentSession().save(jobapplications);
-		return true;
+		return checkifapplied;
 		}
-		catch(Exception e)
-		{
-		System.out.println(e);
-		return false;
+
+
+
+		@Transactional
+		public ArrayList<JobApplications> jobapps(int jobid) {
+			// TODO Auto-generated method stub
+			return null;
 		}
+
+
+
 		
-		
-	}
-	@Transactional
-	public ArrayList<Jobapplications> myjobs(int myid) {
-		System.err.println(myid);
-		Session session = sessionFactory.openSession();
-		ArrayList<Jobapplications> jobapllicationlist=(ArrayList<Jobapplications>)session.createQuery("from JobApplications where userid="+myid).list();
-		session.close();
-		return jobapllicationlist;
-	}
-	
-	@Transactional
-	public ArrayList<Jobapplications> checkIfApplied(int jobid, int myid) {
-		Session session = sessionFactory.openSession();
-		ArrayList<Jobapplications> checkifapplied=(ArrayList<Jobapplications>)session.createQuery("from JobApplications where userid="+myid+" and jobid="+jobid).list();
-	session.close();
-	return checkifapplied;
+
 	}
 
-	public ArrayList<Jobapplications> jobapps(int jobid) {
-	
-		
-	Session session = sessionFactory.openSession();
-	ArrayList<Jobapplications> jobapps=(ArrayList<Jobapplications>)session.createQuery("from JobApplications where  jobid="+jobid).list();
-	session.close();
-	return jobapps;
-	
-	
-	}
-	
 
-}
-	
-
-	
-				

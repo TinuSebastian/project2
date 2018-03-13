@@ -6,28 +6,23 @@ import com.niit.colloboration_backendModel.Forum;
 import com.niit.colloboration_backendModel.ForumComments;
 import com.niit.colloboration_backendModel.ForumRequests;
 
-public interface ForumDao {
+public interface ForumDAO 
+{
 	public boolean addForum(Forum forum);
 	public boolean updateForum(Forum forum);
 	public boolean deleteForum(Forum forum);
 	public Forum getForum(int forumId);
 	public ArrayList<Forum> getAllForum();
-
-
-
-
-
-
 	public ArrayList<ForumRequests> getAllMyForum(int userid);
-	
-	
+
+
 	public boolean addForumComment(ForumComments forumcomment);
 	public boolean updateForumComment(ForumComments forumcomment);
 	public boolean deleteForumComment(ForumComments forumcomment);
 	public ForumComments getForumComment(int commentId);
 	public ArrayList<ForumComments> getAllForumCommentsById(int forumid);
 
-	
+
 	public boolean addForumRequest(ForumRequests forumrequest);
 	public boolean acceptForumRequest(ForumRequests forumrequest);
 	public boolean blockUser(ForumRequests forumrequest);
@@ -40,4 +35,6 @@ public interface ForumDao {
 	public boolean deleteForumRequest(ForumRequests forumreq);
 	public boolean rejectForumRequest(ForumRequests forumrequest);
 	public ForumRequests myforreq(String email,int forumid);
+	
+
 }

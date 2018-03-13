@@ -1,6 +1,5 @@
 package com.niit.colloboration_backendDAO;
 
-public interface BlogCommentDao
-{
+public interface BlogCommentDAO {
 
 }

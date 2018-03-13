@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+            
+  <div data-ng-controller="friendrequestcontroller">
+
+<div class="card card-1" style="margin-top:25px;margin-right: 25px;margin-left: 25px" >
+
+	<div class="panel panel-primary">
+					<div class="panel-heading">
+					<center><b><h1 class="panel-title"><center> Pending Requests</center></h1></b></center>
+					</div>
+    </div>
+ 
+      
+      <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Place</th> 
+              <th>Username</th>
+              <th>Action</th>
+              
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-ng-repeat="freq in myfriendreqs">
+            <td>{{freq.first_name}}</td>
+              <td>{{freq.last_name}}</td>
+              <td>{{freq.place}}</td>
+              <td>{{freq.username}}</td>
+              <td><center><div class="btn-group"> <a data-ng-click="acceptfriend(freq.user_id)"  class="btn btn-primary">ACCEPT</a></div>
+        <div class="btn-group"> <a data-ng-click="rejectfriend(freq.user_id)"  class="btn btn-primary">REJECT</a></div></center></td>
+      </tr>
+          </tbody>
+          <tfoot>
+            
+          </tfoot>
+        </table>
+        </div>
+ 
+ 
+ 
+ </div>
+
+</div>
+</body>
+</html>

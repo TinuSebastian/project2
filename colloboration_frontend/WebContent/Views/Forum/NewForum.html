@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+    <br>
+    <br>
+    <br>
+    
+     <h1>CREATE YOUR FORUM</h1>
+        <div class="col m12">
+        <div class="card card-1" style="margin-top:15vh;height:60vh">
+            
+            <div class="row">
+            <div data-ng-controller="forumcontroller">
+                <form class="col s12" data-ng-submit="addForum()" >
+                   
+         <div class="form-group">
+      <label for="inputlg">Forum Name:</label>
+      <input class="form-control input-lg" id="inputlg" type="text" data-ng-model="Forum.forumname" required >
+    </div>                 
+    <div class="form-group">
+    
+      <label for="comment">Forum Content:</label>
+      <textarea class="form-control" rows="5" id="comment" data-ng-model="Forum.forumcontent" required></textarea>
+    </div>
+    
+    
+    <div class="input-field col s6">
+                            <p class="right-align">
+                                  <button class="btn btn-large waves-effect waves-light" type="submit" >SUBMIT</button>
+                            </p>
+                        </div>
+  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

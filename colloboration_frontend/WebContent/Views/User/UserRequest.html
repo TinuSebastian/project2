@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container" data-ng-controller="userrequestcontroller">
+  <h2>User Request</h2>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="userreq in userrequests">
+        <td>{{userreq.first_name}}   {{userreq.last_name}}</td>
+        <td><div class="btn-group"> <a data-ng-click="acceptuserrequests(userreq.email_id)"  class="btn btn-primary">ACCEPT</a></div></td>
+        <td><div class="btn-group"> <a data-ng-click="rejectuserrequests(userreq.email_id)"  class="btn btn-primary">REJECT</a></div></td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

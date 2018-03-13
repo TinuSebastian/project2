@@ -1,0 +1,45 @@
+<div data-ng-controller="forumcontroller">
+
+<div class="card card-1" style="margin-top:25px;margin-right: 25px;margin-left: 25px" >
+
+	<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title"><center><b>MyForums</b></center></h3></b>
+					</div>
+    </div>
+ 
+    
+      <table class="table table-bordered">
+          <thead>
+            <tr>
+            
+              <th><center><strong>Forum Name</strong></center></th>
+              <th><center><strong>Forum Content</strong></center></th>
+             <th>Action</th>
+             <!--  <th>Action</th> -->
+            </tr>
+          </thead>
+          <tbody>
+         
+            <tr data-ng-repeat="f in myforum">
+         
+           <td> <center>{{f.forumname}}</center></td>
+              <td><center>{{f.forumcontent}}</center></td>
+              <td>
+          <center> 
+           
+	                <a href="" data-ng-click="fetchforumbyid(f.forumid)"><font color="black">ReadMore</font></a></td>
+	           </center>
+            </tr>
+          </tbody>
+          <tfoot>
+            
+          </tfoot>
+        </table>
+        </div>
+ 
+ 
+ 
+ </div>
+
+</div>

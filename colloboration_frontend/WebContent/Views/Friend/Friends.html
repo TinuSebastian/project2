@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container" data-ng-controller="friendcontroller">
+	<div class="row">
+		
+        
+        <div class="col-md-12">
+        <h1><center><b>MY FRIENDS</b></center></h1>
+        <div class="table-responsive">
+
+                
+              <table id="mytable" class="table table-bordered">
+                   
+                   <thead>
+                   
+                   <th><center>Image</center></th>
+                   <th><center>Name</center></th>
+                    <th><center>Username</center></th>
+                   <th><center>Place</center></th>
+                  <th><center>Action</center></th>
+                   
+                   </thead>
+    <tbody>
+    
+    <tr data-ng-repeat="frnds in myfriends">
+    <td><center><img data-ng-src="Images/{{frnds.user_id}}.jpg" onerror="this.src='./images/user.png'" class="img-circle" height="40" width="40"></center></td>
+    <td><center>{{frnds.first_name}}  {{frnds.last_name}}</center></td>
+    <td><center>{{frnds.username}}</center></td>
+    <td><center>{{frnds.place}}</center></td>
+   
+    <td><center><button type="button" class="btn btn-warning" data-ng-click="unfriend(frnds.user_id)">UNFRIEND</button></center></td>
+    
+    
+    <!-- <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+     -->
+     
+     
+     </tr>
+    
+
+   
+    
+    </tbody>
+        
+</table>
+   </div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<style type="text/css">
+body
+{
+    background-image: url("images/jobs.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%; 
+    background-attachment: fixed;
+}
+.table
+{
+    background-image: url("images/white.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%; 
+    background-attachment: fixed;
+}
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus
+{
+    background-color: #0000b3;
+    border-color: #000;
+}
+</style>
+
+<body>
+
+<br>
+<br><br>
+
+	<h1 style="text-align: center; color: #0000b3"><strong>Available Jobs</strong></h1>
+	<div class="container" data-ng-controller="jobcontroller">
+		<div class="row" data-ng-repeat="gjob in jobsdata">
+			<div class="col-sm-12">
+				<table class="table" style="box-shadow: 5px 5px 5px #111; font: bold; color: black">
+					<tr style="font: bold;">
+						<td colspan="3"><h3><strong>{{gjob.jobprofile}}</strong></h3></td>
+					</tr>
+					<tr style="font: bold;">
+						<td>Qualification: {{gjob.qualification}}</td>
+						<td>Organization: {{gjob.company}}</td>
+						<td>Job Description: {{gjob.jobdesc}}</td>
+					</tr>
+					<tr style="font: bold;">
+						<td>Salary: {{gjob.salary}}</td>
+						<td>Job Status: OPEN</td>
+						<td></td>
+					</tr>					
+					<tr style="font: bold;">
+						<td colspan="3">Description: {{gjob.companydesc}}</td>
+					</tr>
+					<tr>
+						<td colspan="3"><p style="text-align: right"><a href="" class="btn btn-primary btn-lg" data-ng-click="applyJob(gjob.jobid)">Apply Now</a></p>
+					</tr>
+				</table>
+			</div>
+		
+		</div>
+	</div>
+</body>

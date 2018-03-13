@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html><style type="text/css">
+h2 {
+  text-align: center;
+}
+table caption {
+	padding: .5em 0;
+}
+@media screen and (max-width: 767px) {
+  table caption {
+    border-bottom: 1px solid #ddd;
+  }
+}
+.p {
+  text-align: center;
+  padding-top: 140px;
+  font-size: 14px;
+}
+</style>
+
+<body>
+	
+	<h2>APPLIED JOBS</h2>
+
+<div class="container">
+  <div class="row" data-ng-controller="jobcontroller">
+    <div class="col-xs-12">
+    <br>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th><center>JOB NAME </center></th>
+              <th><center>JOB DESCRIPTION  </center></th>
+              <th><center>JOB QUALIFICATION </center></th> 
+              <th><center>SALARY</center></th>
+              <th><center>COMPANY</center></th>
+              
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-ng-repeat="aj in myjobs">
+            <td>{{aj.jobprofile}} </td>
+            <td>{{aj.jobdesc}}</td>
+			<td>{{aj.qualification}}</td>
+			<td>{{aj.salary}} </td>
+			<td>{{aj.company}}</td>
+            <!-- <td><center>
+           <a href=""  data-ng-show="currentuser.role=='ROLE_USER'"><a href="" data-ng-click=deletejob(aj.jobid)>DELETE</a>
+           </center></td>
+            -->
+ </tr>
+          </tbody>
+          <tfoot>
+            
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

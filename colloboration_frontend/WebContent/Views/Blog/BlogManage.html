@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container" data-ng-controller="blogcontroller">
+	<div class="row">
+		
+
+        <div class="col-md-12">
+                           <h1><center><b><span class="ion-minus"></span>Blog Posts<span class="ion-minus"></span></b></center></h1>
+
+        <div class="table-responsive">
+<br>
+                
+              <table id="mytable" class="table table-bordered">
+                   
+                   <thead>
+                   
+                   
+                   <th><center>Author Name</center></th>
+                    <th><center>Blog Name</center></th>
+                      <th><center>Action</center></th> 
+                   </thead>
+    <tbody>
+    
+    <tr data-ng-repeat="blog in blogs">
+    <td><center>{{blog.username}}</center></td>
+    <td><center>{{blog.blogname}}</center></td>
+    <th> <center><button type="button" class="btn btn-success" data-ng-click="maximum(blog.blogid)" margin-right:20px">Read more</button></center></th>
+  </tr>
+    
+ 
+    </tbody>
+        
+</table>
+            
+        </div>
+	</div>
+</div>
+</body>
+<script>
+$(document).ready(function(){
+	$("#mytable #checkall").click(function () {
+	        if ($("#mytable #checkall").is(':checked')) {
+	            $("#mytable input[type=checkbox]").each(function () {
+	                $(this).prop("checked", true);
+	            });
+	        } else {
+	            $("#mytable input[type=checkbox]").each(function () {
+	                $(this).prop("checked", false);
+	            });
+	        }
+	    });
+	    
+	    $("[data-toggle=tooltip]").tooltip();
+	});
+</script>
+</html>

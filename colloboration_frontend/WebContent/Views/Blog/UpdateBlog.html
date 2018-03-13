@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+    <br>
+    <br>
+    <br>
+    
+     <h1>UPDATE BLOG</h1>
+        <div class="col m12">
+        <div class="card card-1" style="margin-top:15vh;height:60vh">
+            
+            <div class="row">
+            <div data-ng-controller="blogcontroller">
+                <form class="col s12" data-ng-submit="editBlog()" >
+                   
+         <div class="form-group">
+      <label for="inputlg">Blog Name:</label>
+      <input class="form-control input-lg" id="inputlg" type="text" data-ng-model="Blog.blogname" data-ng-value="eblog.blogname"   >
+    </div>                 
+    <div class="form-group">
+    
+      <label for="comment">Blog Content:</label>
+      <textarea class="form-control" rows="5" id="comment" data-ng-model="Blog.blogcontent" data-ng-value="eblog.blogcontent" ></textarea>
+    </div>
+    
+    
+    <div class="input-field col s6">
+                            <p class="right-align">
+                                <button class="btn btn-large waves-effect waves-light" type="submit" >Update</button>
+                            </p>
+                        </div>
+  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

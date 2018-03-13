@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1><center>JOB MANAGE</center></h1>
+<div class="card card-1" style="margin-top:5vh;margin-left:50px;margin-right: 50px;padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px">
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+       
+        <li class="tab col s3"><a class="active" href="#!newjob">ADD JOB</a></li>
+        
+      </ul>
+    </div>
+    <div id="jobview" class="col s12">
+    <div data-ng-controller="jobcontroller">
+    	
+    	<div class="card card-1" style="margin-top:5vh;padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px">
+    	
+    	 <table class="table table-bordered">
+<tr>
+<td><b>JOB NAME</b> </td>
+<td> <b> JOB DESCRIPTION </b>  </td>
+<td> <b> JOB QUALIFICATION </b> </td>
+<td> <b> SALARY  </b></td>
+<td> <b> COMPANY </b> </td>
+<td><b>ACTION</b></td>
+
+
+</tr>
+<tr data-ng-repeat="jobb in jobsdata">
+<td>{{jobb.jobprofile}} </td>
+<td>  {{jobb.jobdesc}}</td>
+<td> {{jobb.qualification}} </td>
+<td>{{jobb.salary}} </td>
+<td>  {{jobb.company}}</td>
+<!-- <td>  <a href="" data-ng-click="getjob(jobb.jobid)">VIEW</a></td> -->
+<td>       <div  data-ng-show="currentuser.role=='ROLE_ADMIN'"><a href="" data-ng-click=deletejob(jobb.jobid)>DELETE</a></div>
+      <div  data-ng-show="currentuser.role=='ROLE_ADMIN'"><a href="" data-ng-click=fetchjobforedit(jobb.jobid)>EDIT</a></div></td>
+</tr>
+</table>
+    	 
+	</div>
+
+    </div>
+    </div>
+   
+    	
+    	
+    	
+    	
+	</div>
+    
+    </div>
+   
+
+        
+        
+
+
+
+
+
+</body>
+<script>
+$(document).ready(function(){
+    $('ul.tabs').tabs();
+  });
+       
+$(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
+     
+</script>
+</html>

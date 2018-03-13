@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container" data-ng-controller="forumrequestcontroller">
+<br>
+<br>
+<br>
+
+  <h2>Forum Request</h2>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Forum Name</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="forumreq in forumrequests">
+        <td>{{forumreq.username}}</td>
+        <td>{{forumreq.forumname}}</td>
+        <td><div class="btn-group"> <a data-ng-click="acceptforumrequests(forumreq.forreqid)"  class="btn btn-primary">ACCEPT</a></div></td>
+        <td><div class="btn-group"> <a data-ng-click="rejectforumrequests(forumreq.forreqid)"  class="btn btn-primary">REJECT</a></div></td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

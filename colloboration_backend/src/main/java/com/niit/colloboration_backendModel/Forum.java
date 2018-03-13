@@ -9,64 +9,53 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
+
 @Entity
-@Table
 @Component
-	public class Forum implements Serializable {
-		
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
+@Table(name="FORUM")
+public class Forum  implements Serializable
+{
+private static final long serialVersionUID = 1L;
 
 
-		
+	
 
-		@Id
-	    @GeneratedValue 
-	    @Column(name = "ForumID", nullable = false)
-		private int forumid;
-		@Column(name = "Formname", nullable = false)
-	    private String formname;
-		@Column(name = "FormContent", nullable = false)
-	    private String formcontent;
-
-
-		
-
-
-		public int getForumid() {
-			return forumid;
-		}
-
-		public void setForumid(int forumid) {
-			this.forumid = forumid;
-		}
-
-		public String getFormname() {
-			return formname;
-		}
-
-
-		public void setFormname(String formname) {
-			this.formname = formname;
-		}
-
-		public String getFormcontent() {
-			return formcontent;
-		}
-
-		public void setFormcontent(String formcontent) {
-			this.formcontent = formcontent;
-		}
-
-
-
-
-		
-		
-
+	@Id
+    @GeneratedValue 
+    @Column(name = "ForumID", nullable = false)
+	private int forumid;
+	
+	@Column(name = "Forumname", nullable = false)
+    private String forumname;
+	@Column(name = "ForumContent", nullable = false)
+    private String forumcontent;
+	
+	
+	
+	public int getForumid() {
+		return forumid;
+	}
+	public void setForumid(int forumid) {
+		this.forumid = forumid;
+	}
+	public String getForumname() {
+		return forumname;
+	}
+	public void setForumname(String forumname) {
+		this.forumname = forumname;
+	}
+	public String getForumcontent() {
+		return forumcontent;
+	}
+	public void setForumcontent(String forumcontent) {
+		this.forumcontent = forumcontent;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	public Forum() {
+		super();
 	}
 
-
-
+}
