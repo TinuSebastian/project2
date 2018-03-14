@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.colloboration_backendDAO.ForumDAO;
-import com.niit.colloboration_backendDAO.NotificationsDAO;
+import com.niit.colloboration_backendDAO.notificationDao;
 import com.niit.colloboration_backendDAO.UserDAO;
 import com.niit.colloboration_backendModel.Forum;
 import com.niit.colloboration_backendModel.ForumComments;
 import com.niit.colloboration_backendModel.ForumRequests;
-import com.niit.colloboration_backendModel.Notifications;
+import com.niit.colloboration_backendModel.notification;
 import com.niit.colloboration_backendModel.User;
 
 @RestController
@@ -30,7 +30,7 @@ import com.niit.colloboration_backendModel.User;
 		UserDAO usersDAO;
 		
 		@Autowired
-		NotificationsDAO notificationsDAO;
+		notificationDao notificationsDAO;
 		
 		@RequestMapping(value="/getAllForums",method=RequestMethod.GET)
 		public  ArrayList<Forum> getAllForums(){
@@ -287,9 +287,9 @@ import com.niit.colloboration_backendModel.User;
 	boolean IsSaved=forumDAO.acceptForumRequest(fr);
 
 	String noti="your forumrequest for forum:"+fr.getForumname()+" is approved";
-	Notifications not=new Notifications();
-	not.setName(noti);
-	not.setUsername(fr.getUsername());
+	notification not=new notification();
+	not.setNotId(noti);
+	not.setUserName(fr.getUsername());
 
 	notificationsDAO.addNotifications(not);
 
@@ -303,9 +303,9 @@ import com.niit.colloboration_backendModel.User;
 			fr.setStatus("R");
 	boolean IsSaved=forumDAO.rejectForumRequest(fr);
 	String noti="your forumrequest for forum:"+fr.getForumname()+" is rejected";
-	Notifications not=new Notifications();
-	not.setName(noti);
-	not.setUsername(fr.getUsername());
+	notification not=new notification();
+	not.setNotId(noti);
+	not.setUserName(fr.getUsername());
 
 	    notificationsDAO.addNotifications(not);
 		}

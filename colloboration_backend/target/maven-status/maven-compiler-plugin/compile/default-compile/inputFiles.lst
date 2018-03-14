@@ -6,14 +6,12 @@ C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\n
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\config\package-info.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\package-info.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendModel\User.java
+C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendModel\notification.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendModel\OutputMessage.java
-C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendDAOImpl\NotificationsDAOImpl.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendModel\Forum.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendDAO\ForumDAO.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendModel\JobApplications.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendModel\ErrorMessages.java
-C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendDAO\NotificationsDAO.java
-C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendModel\Notifications.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendDAOImpl\ForumCommentDAOImpl.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendDAOImpl\FriendDAOImpl.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendModel\ForumComments.java
@@ -27,7 +25,9 @@ C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\n
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backend\App.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\config\DBConfig.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendModel\ForumRequests.java
+C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendDAOImpl\notificationDaoImpl.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendDAOImpl\BlogCommentDAOImpl.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendDAO\ForumCommentDAO.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendDAO\FriendDAO.java
+C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendDAO\notificationDao.java
 C:\Users\User\Desktop\desktop\project2\colloboration_backend\src\main\java\com\niit\colloboration_backendModel\Blog.java

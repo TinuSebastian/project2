@@ -45,6 +45,10 @@ app.config(function($routeProvider) {
        
        
     })
+     .when("/notifications", {
+        templateUrl : "Views/notifications/Notifications.html",
+    
+    })
     
     .when("/blogrequests", {
         templateUrl : "Views/Blog/BlogRequest.html",

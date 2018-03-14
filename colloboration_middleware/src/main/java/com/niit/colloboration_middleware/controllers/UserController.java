@@ -246,7 +246,7 @@ import com.niit.colloboration_backendModel.User;
 			 	userDAO.updateOnlineStatus(user); 
 			 	
 			 	
-		 	    String filepath ="E:/Collabrational Site/colloboration_frontend/WebContent/Images/" + user.getUser_id()+".jpg";
+		 	    String filepath ="E:/project 2/project2/colloboration_frontend/WebContent/images/" + user.getUser_id()+".jpg";
 		 		
 		 		
 		 		System.out.println(filepath);
@@ -278,7 +278,7 @@ import com.niit.colloboration_backendModel.User;
 			 	
 			 		user.setCover(user.getEmail_id()+"cover.jpg");
 			 	userDAO.updateOnlineStatus(user);
-		 	    String filepath ="E:/Collabrational Site/Colloboration_fronend/WebContent/Images/" +user.getEmail_id()+"cover.jpg";
+		 	    String filepath ="E:/project 2/project2/colloboration_frontend/WebContent/images/" +user.getEmail_id()+"cover.jpg";
 		 		String img=file.getOriginalFilename();
 		 		System.out.println(img);
 		 		System.out.println(filepath);

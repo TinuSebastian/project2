@@ -101,8 +101,8 @@ header, footer {
             <ul class="nav navbar-nav menu-list">
             <li data-ng-show="currentuser.role=='ROLE_ADMIN' || currentuser.role=='ROLE_USER' " >
                 <a href="#">Home</a>
+                
                 </li>
-            
             
                 <li class="dropdown list-category" data-ng-show="currentuser.role=='ROLE_USER'">
                 
@@ -181,7 +181,8 @@ header, footer {
                 </li>
                 
                 
-                
+               
+       <li><a href="#!notifications"><span class="glyphicon glyphicon-globe"></span></a></li> 
           
                 
             </ul>
@@ -258,8 +259,8 @@ header, footer {
 
 <script src="./Views/User/UserController.js"></script>
 <script src="./Views/Blog/BlogController.js"></script>
-<script src="./Views/Job/JobController.js"></script><!-- 
-<script src="./Views/Forum/ForumController.js"></script> -->
+<script src="./Views/Job/JobController.js"></script> 
+<script src="./Views/Forum/ForumController.js"></script>
 <script src="./Views/Friend/FriendController.js"></script>
 <script src="./Views/Chat/ChatController.js"></script>
 <script src="./Views/Chat/ChatService.js"></script>

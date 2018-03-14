@@ -21,7 +21,7 @@ import com.niit.colloboration_backendModel.ForumRequests;
 import com.niit.colloboration_backendModel.Friend;
 import com.niit.colloboration_backendModel.Job;
 import com.niit.colloboration_backendModel.JobApplications;
-import com.niit.colloboration_backendModel.Notifications;
+import com.niit.colloboration_backendModel.notification;
 import com.niit.colloboration_backendModel.User;
 
 @Configuration
@@ -46,7 +46,7 @@ public class DBConfig
 	        sessionBuilder.addAnnotatedClass(ForumComments.class);
 	        sessionBuilder.addAnnotatedClass(ForumRequests.class);
 	        sessionBuilder.addAnnotatedClass(Friend.class);
-	        sessionBuilder.addAnnotatedClass(Notifications.class);
+	        sessionBuilder.addAnnotatedClass(notification.class);
 	        
 	        
 	        

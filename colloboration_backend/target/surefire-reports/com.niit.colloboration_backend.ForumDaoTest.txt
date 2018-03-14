@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.niit.colloboration_backend.ForumDAOTest
 -------------------------------------------------------------------------------
-Tests run: 15, Failures: 0, Errors: 0, Skipped: 14, Time elapsed: 2.659 sec
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 14, Time elapsed: 2.282 sec
